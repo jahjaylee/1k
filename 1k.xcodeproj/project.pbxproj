@@ -22,6 +22,7 @@
 		69E39AA518ECF9A2002FC82C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69E39AA318ECF9A2002FC82C /* InfoPlist.strings */; };
 		69E39AA718ECF9A2002FC82C /* _kTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E39AA618ECF9A2002FC82C /* _kTests.m */; };
 		69E39AB318ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69E39AB218ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg */; };
+		69E39AB518ED00CF002FC82C /* GSjvDeN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69E39AB418ED00CF002FC82C /* GSjvDeN.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		69E39AA418ECF9A2002FC82C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69E39AA618ECF9A2002FC82C /* _kTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _kTests.m; sourceTree = "<group>"; };
 		69E39AB218ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "corgi-puppy-on-a-couch.jpg"; sourceTree = "<group>"; };
+		69E39AB418ED00CF002FC82C /* GSjvDeN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GSjvDeN.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		69E39A8118ECF9A1002FC82C /* 1k */ = {
 			isa = PBXGroup;
 			children = (
+				69E39AB418ED00CF002FC82C /* GSjvDeN.jpg */,
 				69E39AB218ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg */,
 				69E39A8A18ECF9A1002FC82C /* AppDelegate.h */,
 				69E39A8B18ECF9A1002FC82C /* AppDelegate.m */,
@@ -234,6 +237,7 @@
 				69E39A9418ECF9A1002FC82C /* Images.xcassets in Resources */,
 				69E39A8618ECF9A1002FC82C /* InfoPlist.strings in Resources */,
 				69E39A8F18ECF9A1002FC82C /* Main.storyboard in Resources */,
+				69E39AB518ED00CF002FC82C /* GSjvDeN.jpg in Resources */,
 				69E39AB318ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

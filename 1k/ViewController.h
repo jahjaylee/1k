@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+    NSMutableArray *images;
+    int count;
+    CGRect centered;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @end

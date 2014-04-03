@@ -17,9 +17,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="corgi-puppy-on-a-couch.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="h8c-Wp-SNf">
-                                <rect key="frame" x="0.0" y="0.0" width="329" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="329" height="534"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="mYg-6R-mLB" appends="YES" id="gSh-GL-XIh"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -30,6 +33,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="mYg-6R-mLB">
+                    <connections>
+                        <action selector="handlePan:" destination="vXZ-lx-hvc" id="j2u-Jm-hwE"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
         </scene>
     </scenes>
