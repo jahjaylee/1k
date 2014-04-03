@@ -26,4 +26,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSUInteger numTaps = [[touches anyObject] tapCount];
+	if(numTaps >= 2) {
+		[self performSegueWithIdentifier:@"toMenu" sender:nil];
+    }
+}
+
 @end
