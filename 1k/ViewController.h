@@ -12,6 +12,7 @@
     NSMutableArray *images;
     int count;
     CGRect centered;
+    UIColor *overlayColor;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
