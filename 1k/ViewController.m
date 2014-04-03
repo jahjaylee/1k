@@ -43,16 +43,21 @@
     count%=2;*/
 }
 
-- (void) animateImage {
+- (void) animateImage:(bool) isLeft {
     //NSLog(@"Hello?");
-    CGRect end = CGRectMake(500, self.mainImage.frame.origin.y, self.mainImage.frame.size.width, self.mainImage.frame.size.height);
-    [UIView animateWithDuration:.5 animations:^{[self.mainImage setFrame:end];}completion:^(BOOL finished){
+    CGRect end = CGRectMake(isLeft ? -500 : 500, self.mainImage.frame.origin.y, self.mainImage.frame.size.width, self.mainImage.frame.size.height);
+    [UIView animateWithDuration:.5 animations:^{
+        [self.mainImage setFrame:end];
+        self.view.backgroundColor = isLeft ? [UIColor redColor] : [UIColor greenColor];
+    }completion:^(BOOL finished){
         self.mainImage.image = [images objectAtIndex:(count+1)%2];
+        self.mainImage.frame = centered;
+        self.view.backgroundColor = [UIColor blackColor];
     }];
-    self.mainImage.image = [images objectAtIndex:count];
+    //self.mainImage.image = [images objectAtIndex:count];
     count++;
     count%=2;
-    self.mainImage.frame = centered;
+    
 }
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
@@ -66,12 +71,12 @@
     if(recognizer.state == UIGestureRecognizerStateEnded)
     {
         if(recognizer.view.center.x + translation.x > 350){
-            [self animateImage];
-            _mainImage.image = [self colorShit:temp whatColor:[UIColor greenColor]];
+            [self animateImage:NO];
+            //_mainImage.image = [self colorShit:temp whatColor:[UIColor greenColor]];
         }
         else if(recognizer.view.center.x + translation.x < 0){
-            [self animateImage];
-            _mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
+            [self animateImage:YES];
+            //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
         }
         else{
             [UIView animateWithDuration:.5 animations:^{[self.mainImage setFrame:centered];}];
