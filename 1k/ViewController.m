@@ -55,10 +55,16 @@
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
     
     CGPoint translation = [recognizer translationInView:self.view];
-    recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
-                                         recognizer.view.center.y);
+    if(abs(translation.x)>abs(translation.y)){
+        recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
+                                             self.view.center.y);
+    }
+    else{
+        recognizer.view.center = CGPointMake(self.view.center.x,
+                                             recognizer.view.center.y + translation.y);
+    }
+    
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
-
     if(recognizer.state == UIGestureRecognizerStateEnded)
     {
         if(recognizer.view.center.x + translation.x>350 || recognizer.view.center.x + translation.x<50){
