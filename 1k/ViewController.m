@@ -24,12 +24,12 @@
     [images addObject:temp];
     temp = [UIImage imageNamed:@"corgi-puppy-on-a-couch.jpg"];
     [images addObject:temp];
-    _mainImage.image = temp;
-    centered = _mainImage.frame;
+    self.mainImage.image = temp;
+    centered = self.mainImage.frame;
     rightSwipe.direction=UISwipeGestureRecognizerDirectionRight;
     
-    UISwipeGestureRecognizer *leftSwipe=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-    leftSwipe.direction=UISwipeGestureRecognizerDirectionLeft;
+    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     
     [self.view addGestureRecognizer:leftSwipe];
     [self.view addGestureRecognizer:rightSwipe];
@@ -43,13 +43,14 @@
     count%=2;*/
 }
 
--(void)fuckYo{
-    NSLog(@"Hello?");
-    _mainImage.image = [images objectAtIndex:count];
+- (void) animateImage {
+    //NSLog(@"Hello?");
+    CGRect end = CGRectMake(500, self.mainImage.frame.origin.y, self.mainImage.frame.size.width, self.mainImage.frame.size.height);
+    [UIView animateWithDuration:.5 animations:^{[self.mainImage setFrame:end];}];
+    self.mainImage.image = [images objectAtIndex:count];
     count++;
     count%=2;
     self.mainImage.frame = centered;
-    
 }
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
@@ -61,11 +62,11 @@
 
     if(recognizer.state == UIGestureRecognizerStateEnded)
     {
-        if(recognizer.view.center.x + translation.x>350 || recognizer.view.center.x + translation.x<50){
-            [self fuckYo];
+        if(recognizer.view.center.x + translation.x > 350 || recognizer.view.center.x + translation.x < 0){
+            [self animateImage];
         }
         else{
-            self.mainImage.frame = centered;
+            [UIView animateWithDuration:.5 animations:^{[self.mainImage setFrame:centered];}];
         }
     }
 }
