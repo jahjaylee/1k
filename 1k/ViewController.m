@@ -60,25 +60,66 @@
     
 }
 
+- (void) animateUpImage:(bool) isDown {
+    //NSLog(@"Hello?");
+    CGRect end = CGRectMake(self.mainImage.frame.origin.x, isDown ? -800 : 800, self.mainImage.frame.size.width, self.mainImage.frame.size.height);
+    [UIView animateWithDuration:.5 animations:^{
+        [self.mainImage setFrame:end];
+        self.view.backgroundColor = isDown ? [UIColor blueColor] : [UIColor yellowColor];
+    }completion:^(BOOL finished){
+        self.mainImage.image = [images objectAtIndex:(count+1)%2];
+        self.mainImage.frame = centered;
+        self.view.backgroundColor = [UIColor blackColor];
+    }];
+    //self.mainImage.image = [images objectAtIndex:count];
+    count++;
+    count%=2;
+    
+}
+
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
     
     CGPoint translation = [recognizer translationInView:self.view];
-    recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
-                                         self.view.center.y);
+    if(abs(translation.x)>abs(translation.y)){
+        NSLog(@"X swipe");
+        recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
+                                             self.view.center.y);
+    }
+    else if(abs(translation.x)==abs(translation.y)){
+        NSLog(@"I don't know why this works but you must have this if statement");
+    }
+    else{
+        NSLog(@"Y swipe");
+        recognizer.view.center = CGPointMake(self.view.center.x,
+                                             recognizer.view.center.y + translation.y);
+    }
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
-    UIImage *temp = [images objectAtIndex:count];
 
     if(recognizer.state == UIGestureRecognizerStateEnded)
     {
+        NSLog(@"%f",recognizer.view.center.x + translation.x);
         if(recognizer.view.center.x + translation.x > 350){
+            NSLog(@"1");
             [self animateImage:NO];
             //_mainImage.image = [self colorShit:temp whatColor:[UIColor greenColor]];
         }
         else if(recognizer.view.center.x + translation.x < 0){
+            NSLog(@"2");
             [self animateImage:YES];
             //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
         }
+        else if(recognizer.view.center.y + translation.y > 300){
+            NSLog(@"3");
+            [self animateUpImage:NO];
+            //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
+        }
+        else if(recognizer.view.center.y + translation.y < 0){
+            NSLog(@"4");
+            [self animateUpImage:YES];
+            //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
+        }
         else{
+            NSLog(@"5");
             [UIView animateWithDuration:.5 animations:^{[self.mainImage setFrame:centered];}];
         }
     }
