@@ -23,6 +23,11 @@
 		69E39AA718ECF9A2002FC82C /* _kTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E39AA618ECF9A2002FC82C /* _kTests.m */; };
 		69E39AB318ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69E39AB218ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg */; };
 		69E39AB518ED00CF002FC82C /* GSjvDeN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69E39AB418ED00CF002FC82C /* GSjvDeN.jpg */; };
+		69E39AB718F6095C002FC82C /* icon_11796.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E39AB618F6095C002FC82C /* icon_11796.png */; };
+		69E39ABA18F60B1B002FC82C /* icon_18122.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E39AB818F60B1B002FC82C /* icon_18122.png */; };
+		69E39ABB18F60B1B002FC82C /* icon_18123.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E39AB918F60B1B002FC82C /* icon_18123.png */; };
+		69E39ABF18F60F73002FC82C /* 1k basic Logo 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E39ABE18F60F73002FC82C /* 1k basic Logo 120x120.png */; };
+		69E39AC118F61085002FC82C /* 1k Logo Better 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E39AC018F61085002FC82C /* 1k Logo Better 120x120.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,11 @@
 		69E39AA618ECF9A2002FC82C /* _kTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _kTests.m; sourceTree = "<group>"; };
 		69E39AB218ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "corgi-puppy-on-a-couch.jpg"; sourceTree = "<group>"; };
 		69E39AB418ED00CF002FC82C /* GSjvDeN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GSjvDeN.jpg; sourceTree = "<group>"; };
+		69E39AB618F6095C002FC82C /* icon_11796.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_11796.png; sourceTree = "<group>"; };
+		69E39AB818F60B1B002FC82C /* icon_18122.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_18122.png; sourceTree = "<group>"; };
+		69E39AB918F60B1B002FC82C /* icon_18123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_18123.png; sourceTree = "<group>"; };
+		69E39ABE18F60F73002FC82C /* 1k basic Logo 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1k basic Logo 120x120.png"; sourceTree = "<group>"; };
+		69E39AC018F61085002FC82C /* 1k Logo Better 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1k Logo Better 120x120.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +126,11 @@
 		69E39A8118ECF9A1002FC82C /* 1k */ = {
 			isa = PBXGroup;
 			children = (
+				69E39AC018F61085002FC82C /* 1k Logo Better 120x120.png */,
+				69E39ABE18F60F73002FC82C /* 1k basic Logo 120x120.png */,
+				69E39AB818F60B1B002FC82C /* icon_18122.png */,
+				69E39AB918F60B1B002FC82C /* icon_18123.png */,
+				69E39AB618F6095C002FC82C /* icon_11796.png */,
 				69E39AB418ED00CF002FC82C /* GSjvDeN.jpg */,
 				69E39AB218ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg */,
 				69E39A8A18ECF9A1002FC82C /* AppDelegate.h */,
@@ -234,8 +249,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E39AC118F61085002FC82C /* 1k Logo Better 120x120.png in Resources */,
+				69E39ABB18F60B1B002FC82C /* icon_18123.png in Resources */,
 				69E39A9418ECF9A1002FC82C /* Images.xcassets in Resources */,
+				69E39AB718F6095C002FC82C /* icon_11796.png in Resources */,
+				69E39ABA18F60B1B002FC82C /* icon_18122.png in Resources */,
 				69E39A8618ECF9A1002FC82C /* InfoPlist.strings in Resources */,
+				69E39ABF18F60F73002FC82C /* 1k basic Logo 120x120.png in Resources */,
 				69E39A8F18ECF9A1002FC82C /* Main.storyboard in Resources */,
 				69E39AB518ED00CF002FC82C /* GSjvDeN.jpg in Resources */,
 				69E39AB318ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg in Resources */,

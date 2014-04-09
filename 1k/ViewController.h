@@ -15,5 +15,7 @@
     UIColor *overlayColor;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @end

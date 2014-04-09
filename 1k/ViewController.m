@@ -43,6 +43,15 @@
     count%=2;*/
 }
 
+- (IBAction)leftPress:(id)sender {
+    [self animateImage:YES];
+}
+
+- (IBAction)rightPress:(id)sender {
+    [self animateImage:NO];
+}
+
+
 - (void) animateImage:(bool) isLeft {
     //NSLog(@"Hello?");
     CGRect end = CGRectMake(isLeft ? -500 : 500, self.mainImage.frame.origin.y, self.mainImage.frame.size.width, self.mainImage.frame.size.height);
@@ -86,7 +95,8 @@
                                              self.view.center.y);
     }
     else if(abs(translation.x)==abs(translation.y)){
-        NSLog(@"I don't know why this works but you must have this if statement");
+        //I don't know why this works but you must have this if statement
+        //For some reason if you don't handle the middle case where translation.x = translation.y it doesnt work
     }
     else{
         NSLog(@"Y swipe");
