@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		694A878018F64D1D006B7AC4 /* icon_29074.png in Resources */ = {isa = PBXBuildFile; fileRef = 694A877F18F64D1D006B7AC4 /* icon_29074.png */; };
+		694A878418F72F8C006B7AC4 /* Logo again 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 694A878318F72F8C006B7AC4 /* Logo again 120x120.png */; };
 		69E39A7C18ECF9A1002FC82C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E39A7B18ECF9A1002FC82C /* Foundation.framework */; };
 		69E39A7E18ECF9A1002FC82C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E39A7D18ECF9A1002FC82C /* CoreGraphics.framework */; };
 		69E39A8018ECF9A1002FC82C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E39A7F18ECF9A1002FC82C /* UIKit.framework */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		694A877F18F64D1D006B7AC4 /* icon_29074.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29074.png; sourceTree = "<group>"; };
+		694A878318F72F8C006B7AC4 /* Logo again 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo again 120x120.png"; sourceTree = "<group>"; };
 		69E39A7818ECF9A1002FC82C /* 1k.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1k.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E39A7B18ECF9A1002FC82C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		69E39A7D18ECF9A1002FC82C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +130,7 @@
 		69E39A8118ECF9A1002FC82C /* 1k */ = {
 			isa = PBXGroup;
 			children = (
+				694A878318F72F8C006B7AC4 /* Logo again 120x120.png */,
 				694A877F18F64D1D006B7AC4 /* icon_29074.png */,
 				69E39AC018F61085002FC82C /* 1k Logo Better 120x120.png */,
 				69E39ABE18F60F73002FC82C /* 1k basic Logo 120x120.png */,
@@ -256,6 +259,7 @@
 				69E39AC118F61085002FC82C /* 1k Logo Better 120x120.png in Resources */,
 				69E39ABB18F60B1B002FC82C /* icon_18123.png in Resources */,
 				69E39A9418ECF9A1002FC82C /* Images.xcassets in Resources */,
+				694A878418F72F8C006B7AC4 /* Logo again 120x120.png in Resources */,
 				69E39AB718F6095C002FC82C /* icon_11796.png in Resources */,
 				69E39ABA18F60B1B002FC82C /* icon_18122.png in Resources */,
 				69E39A8618ECF9A1002FC82C /* InfoPlist.strings in Resources */,
