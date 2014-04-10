@@ -6,6 +6,15 @@
 //  Copyright (c) 2014 Jay Lee. All rights reserved.
 //
 
+/**
+ Notes:
+ Think about orientation changes.
+ Online swiping libraries?
+ Examine reddit and imgur API's
+ 
+ 
+**/
+
 #import "ViewController.h"
 
 @interface ViewController ()
@@ -110,7 +119,7 @@
     if(abs(translation.x)>abs(translation.y)){
         NSLog(@"X swipe");
         recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
-                                             self.view.center.y);
+                                             self.view.center.y-33.5);
     }
     else if(abs(translation.x)==abs(translation.y)){
         //I don't know why this works but you must have this if statement

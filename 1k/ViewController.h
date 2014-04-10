@@ -13,6 +13,7 @@
     int count;
     CGRect centered;
     UIColor *overlayColor;
+    UIImageView *startImage;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
