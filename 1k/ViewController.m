@@ -51,17 +51,35 @@
     [self animateImage:NO];
 }
 
+- (void) doBackgroundColorAnimation: (UIColor*) color {
+    [UIView animateWithDuration:.5f animations:^{
+        self.view.backgroundColor = color;
+    } completion:^(BOOL finished) {
+        //[UIView animateWithDuration:.25f animations:^{
+         //   self.view.backgroundColor = [UIColor whiteColor];
+        //}];
+    }];
+    
+}
+
 
 - (void) animateImage:(bool) isLeft {
     //NSLog(@"Hello?");
     CGRect end = CGRectMake(isLeft ? -500 : 500, self.mainImage.frame.origin.y, self.mainImage.frame.size.width, self.mainImage.frame.size.height);
     [UIView animateWithDuration:.5 animations:^{
         [self.mainImage setFrame:end];
-        self.view.backgroundColor = isLeft ? [UIColor redColor] : [UIColor greenColor];
+        [self doBackgroundColorAnimation:isLeft ? [UIColor redColor] : [UIColor greenColor]];
+        
     }completion:^(BOOL finished){
+        //self.mainImage.frame = CGRectMake(175, 300, 0, 0);
         self.mainImage.image = [images objectAtIndex:(count+1)%2];
         self.mainImage.frame = centered;
-        self.view.backgroundColor = [UIColor blackColor];
+        self.mainImage.alpha = 0.0f;
+        [UIView animateWithDuration:0.5 animations:^{
+            
+            self.view.backgroundColor = [UIColor whiteColor];
+            self.mainImage.alpha = 1.0f;
+        }];
     }];
     //self.mainImage.image = [images objectAtIndex:count];
     count++;
