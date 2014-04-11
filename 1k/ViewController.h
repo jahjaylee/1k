@@ -14,6 +14,7 @@
     CGRect centered;
     UIColor *overlayColor;
     UIImageView *startImage;
+    UILabel *fade;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;

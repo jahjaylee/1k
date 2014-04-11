@@ -36,7 +36,7 @@
     self.mainImage.image = temp;
     centered = self.mainImage.frame;
     rightSwipe.direction=UISwipeGestureRecognizerDirectionRight;
-    
+    fade.frame = centered;
     UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     
@@ -86,7 +86,7 @@
         self.mainImage.alpha = 0.0f;
         [UIView animateWithDuration:0.5 animations:^{
             
-            self.view.backgroundColor = [UIColor blackColor];
+            self.view.backgroundColor = [UIColor whiteColor];
             self.mainImage.alpha = 1.0f;
         }];
     }];
@@ -105,7 +105,7 @@
     }completion:^(BOOL finished){
         self.mainImage.image = [images objectAtIndex:(count+1)%2];
         self.mainImage.frame = centered;
-        self.view.backgroundColor = [UIColor blackColor];
+        self.view.backgroundColor = [UIColor whiteColor];
     }];
     //self.mainImage.image = [images objectAtIndex:count];
     count++;
@@ -114,10 +114,11 @@
 }
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
-    
+    int difference;
+    double alpha;
     CGPoint translation = [recognizer translationInView:self.view];
     if(abs(translation.x)>abs(translation.y)){
-        NSLog(@"X swipe");
+        //NSLog(@"X swipe");
         recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
                                              self.view.center.y-33.5);
     }
@@ -126,11 +127,30 @@
         //For some reason if you don't handle the middle case where translation.x = translation.y it doesnt work
     }
     else{
-        NSLog(@"Y swipe");
+        //NSLog(@"Y swipe");
         recognizer.view.center = CGPointMake(self.view.center.x,
                                              recognizer.view.center.y + translation.y);
     }
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
+    
+    if(recognizer.view.center.x>self.view.center.x){
+        difference = recognizer.view.center.x-self.view.center.x;
+        alpha = difference/320.0;
+        NSLog(@"%f",alpha);
+        NSLog(@"recognizer center %f", recognizer.view.center.x);
+        NSLog(@"view center %f", self.view.center.x);
+        fade.backgroundColor = [UIColor redColor];
+        
+    }
+    else if(recognizer.view.center.x<self.view.center.x){
+        
+    }
+    else if(recognizer.view.center.y>self.view.center.y-33.5){
+        
+    }
+    else if(recognizer.view.center.y<self.view.center.y-33.5){
+        
+    }
 
     if(recognizer.state == UIGestureRecognizerStateEnded)
     {
