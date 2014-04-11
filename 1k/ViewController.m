@@ -86,7 +86,7 @@
         self.mainImage.alpha = 0.0f;
         [UIView animateWithDuration:0.5 animations:^{
             
-            self.view.backgroundColor = [UIColor whiteColor];
+            self.view.backgroundColor = [UIColor blackColor];
             self.mainImage.alpha = 1.0f;
         }];
     }];
