@@ -7,8 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ParseStarterProjectViewController">
             <connections>
+                <outlet property="dislikeButton" destination="LM7-oR-zT0" id="57r-zQ-dMx"/>
                 <outlet property="dislikeLabel" destination="f4u-Fc-zYF" id="aGd-yJ-OMI"/>
-                <outlet property="displayImage" destination="EI7-L6-hwR" id="kBz-cK-3Oa"/>
+                <outlet property="likeButton" destination="ev2-tM-dM8" id="eB0-Vg-RWr"/>
                 <outlet property="likeLabel" destination="9Vy-YI-jhc" id="Dp7-3d-pQX"/>
                 <outlet property="view" destination="6" id="7"/>
             </connections>
@@ -18,10 +19,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ToddSproull_lg.JPG" id="EI7-L6-hwR">
-                    <rect key="frame" x="40" y="95" width="240" height="217"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ev2-tM-dM8">
                     <rect key="frame" x="192" y="369" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -60,7 +57,4 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
-    <resources>
-        <image name="ToddSproull_lg.JPG" width="291" height="300"/>
-    </resources>
 </document>
