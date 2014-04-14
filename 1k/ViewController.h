@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController{
+    NSMutableArray *images;
+    int count;
+    CGRect centered;
+    UIColor *overlayColor;
+    UIImageView *startImage;
+}
+@property (weak, nonatomic) IBOutlet UIImageView *mainImage;
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
+- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @end
