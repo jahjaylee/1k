@@ -34,6 +34,7 @@
     ALAsset *asset = self.assets[indexPath.row];
     UIImage *thumbnail = [[UIImage alloc] initWithCGImage:[asset thumbnail]];
     UIImageView *thumbnailView = [[UIImageView alloc] initWithImage:thumbnail];
+    thumbnailView.contentMode = UIViewContentModeScaleAspectFit;
     [cell.contentView addSubview:thumbnailView];
     
     return cell;

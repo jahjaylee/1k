@@ -28,6 +28,8 @@
     [super viewDidLoad];
     
     assetsAccessor = [[AssetsAccessor alloc] initWithDelegate:self];
+    self.titleTextField.delegate = self;
+    self.descriptionTextField.delegate = self;
 }
 
 #pragma mark - IBActions
@@ -36,9 +38,43 @@
     [assetsAccessor getAssetsGroupsWithTypes:ALAssetsGroupAll];
     
 }
-
-- (IBAction)pressGetImage:(id)sender {
-    //[assetsAccessor getAssetByURL:imageURL];
+- (IBAction)pressUploadButton:(id)sender {
+    
+    NSString *clientID = @"a1200e4c3161c4d";
+    
+    NSString *title = [[self titleTextField] text];
+    NSString *description = [[self descriptionTextField] text];
+    
+    [assetsAccessor getAssetByURL:imageURL];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    __weak UploadViewController *weakSelf = self;
+    // Load the image data up in the background so we don't block the UI
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *imageData = UIImageJPEGRepresentation(_uploadImage, 1.0f);
+        
+        [MLIMGURUploader uploadPhoto:imageData title:title description:description imgurClientID:clientID completionBlock:^(NSString *result) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                [[weakSelf linkTextView] setText:result];
+            });
+        } failureBlock:^(NSURLResponse *response, NSError *error, NSInteger status) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                [[[UIAlertView alloc] initWithTitle:@"Upload Failed"
+                                            message:[NSString stringWithFormat:@"%@ (Status code %ld)", [error localizedDescription], (long)status]
+                                           delegate:nil
+                                  cancelButtonTitle:nil
+                                  otherButtonTitles:@"OK", nil] show];
+            });
+        }];
+        
+    });
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 #pragma mark - Methods for Segue
@@ -58,9 +94,6 @@
 - (void)didFinishPickingAsset:(ALAsset *)asset{
     [self dismissViewControllerAnimated:YES completion:nil];
     imageURL = [[asset defaultRepresentation] url];
-    self.urlLabel.text = imageURL.absoluteString;
-    self.urlLabel.textColor = [UIColor redColor];
-    //self.getButton.enabled = YES;
     [assetsAccessor getAssetByURL:imageURL];
 }
 
@@ -71,8 +104,8 @@
 }
 
 - (void)assetDidLoadByURL:(ALAsset *)asset{
-    UIImage *image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]];
-    self.imageView.image = image;
+    _uploadImage = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]];
+    self.imageView.image = _uploadImage;
 }
 
 - (void)didReceiveMemoryWarning

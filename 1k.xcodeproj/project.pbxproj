@@ -38,6 +38,7 @@
 		C3E1E1A318FCC65000FFF1A0 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E1E1A018FCC65000FFF1A0 /* TableViewController.m */; };
 		C3E1E1A418FCC65000FFF1A0 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E1E1A218FCC65000FFF1A0 /* CollectionViewController.m */; };
 		C3E1E1A718FCC65B00FFF1A0 /* AssetsAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E1E1A618FCC65B00FFF1A0 /* AssetsAccessor.m */; };
+		C3E1E1B118FD1EBD00FFF1A0 /* MLIMGURUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E1E1B018FD1EBD00FFF1A0 /* MLIMGURUploader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,8 @@
 		C3E1E1A218FCC65000FFF1A0 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		C3E1E1A518FCC65B00FFF1A0 /* AssetsAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsAccessor.h; sourceTree = "<group>"; };
 		C3E1E1A618FCC65B00FFF1A0 /* AssetsAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsAccessor.m; sourceTree = "<group>"; };
+		C3E1E1AF18FD1EBD00FFF1A0 /* MLIMGURUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLIMGURUploader.h; sourceTree = "<group>"; };
+		C3E1E1B018FD1EBD00FFF1A0 /* MLIMGURUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLIMGURUploader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +220,8 @@
 		C3E1E1A818FCC66800FFF1A0 /* UploadView Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C3E1E1AF18FD1EBD00FFF1A0 /* MLIMGURUploader.h */,
+				C3E1E1B018FD1EBD00FFF1A0 /* MLIMGURUploader.m */,
 				C3E1E19F18FCC65000FFF1A0 /* TableViewController.h */,
 				C3E1E1A018FCC65000FFF1A0 /* TableViewController.m */,
 				C3E1E1A118FCC65000FFF1A0 /* CollectionViewController.h */,
@@ -338,6 +343,7 @@
 				69E39A8818ECF9A1002FC82C /* main.m in Sources */,
 				044318DC18F78C3600114472 /* UploadViewController.m in Sources */,
 				C3E1E1A318FCC65000FFF1A0 /* TableViewController.m in Sources */,
+				C3E1E1B118FD1EBD00FFF1A0 /* MLIMGURUploader.m in Sources */,
 				044318E418F7954500114472 /* CategoryViewController.m in Sources */,
 				044318ED18F7A02500114472 /* HistoryViewController.m in Sources */,
 				044318F018F7A1CE00114472 /* AccountViewController.m in Sources */,

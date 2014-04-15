@@ -21,7 +21,7 @@
     if (self.groups.count==1 && [self.groups[0] numberOfAssets]==0) {
         [[[UIAlertView alloc] initWithTitle:@"No Photo" message:@"Please add some photos to this device." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
     }
-    
+
     assetsAccessor = [[AssetsAccessor alloc] initWithDelegate:self];
 }
 
@@ -57,7 +57,6 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
     cell.imageView.image = [UIImage imageWithCGImage:[self.groups[indexPath.row] posterImage]];
     cell.textLabel.text = [self.groups[indexPath.row] valueForProperty:ALAssetsGroupPropertyName];
     
