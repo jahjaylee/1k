@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AssetsAccessor.h"
+#import "TableViewController.h"
+#import "CollectionViewController.h"
 
-@interface UploadViewController : UIViewController
+@interface UploadViewController : UIViewController<AssetsAccessorDelegate, MyImagePickerControllerDelegate> {
+    AssetsAccessor *assetsAccessor;
+    NSURL *imageURL;
+}
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *selectButton;
+@property (weak, nonatomic) IBOutlet UIButton *uploadButton;
+@property (weak, nonatomic) IBOutlet UILabel *urlLabel;
 
 @end

@@ -35,6 +35,9 @@
 		69E39ABB18F60B1B002FC82C /* icon_18123.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E39AB918F60B1B002FC82C /* icon_18123.png */; };
 		69E39ABF18F60F73002FC82C /* 1k basic Logo 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E39ABE18F60F73002FC82C /* 1k basic Logo 120x120.png */; };
 		69E39AC118F61085002FC82C /* 1k Logo Better 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E39AC018F61085002FC82C /* 1k Logo Better 120x120.png */; };
+		C3E1E1A318FCC65000FFF1A0 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E1E1A018FCC65000FFF1A0 /* TableViewController.m */; };
+		C3E1E1A418FCC65000FFF1A0 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E1E1A218FCC65000FFF1A0 /* CollectionViewController.m */; };
+		C3E1E1A718FCC65B00FFF1A0 /* AssetsAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E1E1A618FCC65B00FFF1A0 /* AssetsAccessor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,12 @@
 		69E39AB918F60B1B002FC82C /* icon_18123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_18123.png; sourceTree = "<group>"; };
 		69E39ABE18F60F73002FC82C /* 1k basic Logo 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1k basic Logo 120x120.png"; sourceTree = "<group>"; };
 		69E39AC018F61085002FC82C /* 1k Logo Better 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1k Logo Better 120x120.png"; sourceTree = "<group>"; };
+		C3E1E19F18FCC65000FFF1A0 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		C3E1E1A018FCC65000FFF1A0 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		C3E1E1A118FCC65000FFF1A0 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		C3E1E1A218FCC65000FFF1A0 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		C3E1E1A518FCC65B00FFF1A0 /* AssetsAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsAccessor.h; sourceTree = "<group>"; };
+		C3E1E1A618FCC65B00FFF1A0 /* AssetsAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsAccessor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +176,7 @@
 				044318E018F791CE00114472 /* MenuViewController.m */,
 				044318DA18F78C3600114472 /* UploadViewController.h */,
 				044318DB18F78C3600114472 /* UploadViewController.m */,
+				C3E1E1A818FCC66800FFF1A0 /* UploadView Assets */,
 				69E39A9018ECF9A1002FC82C /* ViewController.h */,
 				69E39A9118ECF9A1002FC82C /* ViewController.m */,
 				69E39A9318ECF9A1002FC82C /* Images.xcassets */,
@@ -202,6 +212,19 @@
 				69E39AA318ECF9A2002FC82C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3E1E1A818FCC66800FFF1A0 /* UploadView Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C3E1E19F18FCC65000FFF1A0 /* TableViewController.h */,
+				C3E1E1A018FCC65000FFF1A0 /* TableViewController.m */,
+				C3E1E1A118FCC65000FFF1A0 /* CollectionViewController.h */,
+				C3E1E1A218FCC65000FFF1A0 /* CollectionViewController.m */,
+				C3E1E1A518FCC65B00FFF1A0 /* AssetsAccessor.h */,
+				C3E1E1A618FCC65B00FFF1A0 /* AssetsAccessor.m */,
+			);
+			name = "UploadView Assets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,9 +337,12 @@
 				69E39A8C18ECF9A1002FC82C /* AppDelegate.m in Sources */,
 				69E39A8818ECF9A1002FC82C /* main.m in Sources */,
 				044318DC18F78C3600114472 /* UploadViewController.m in Sources */,
+				C3E1E1A318FCC65000FFF1A0 /* TableViewController.m in Sources */,
 				044318E418F7954500114472 /* CategoryViewController.m in Sources */,
 				044318ED18F7A02500114472 /* HistoryViewController.m in Sources */,
 				044318F018F7A1CE00114472 /* AccountViewController.m in Sources */,
+				C3E1E1A418FCC65000FFF1A0 /* CollectionViewController.m in Sources */,
+				C3E1E1A718FCC65B00FFF1A0 /* AssetsAccessor.m in Sources */,
 				044318E118F791CE00114472 /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
