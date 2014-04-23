@@ -15,6 +15,7 @@
     UIColor *overlayColor;
     UIImageView *startImage;
 }
+@property (strong, nonatomic) IBOutlet UILabel *buttonview;
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;

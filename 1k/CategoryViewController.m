@@ -7,6 +7,7 @@
 //
 
 #import "CategoryViewController.h"
+#import "FlatUIKit.h"
 
 @interface CategoryViewController ()
 
@@ -26,6 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor wetAsphaltColor]];
+    [self.picker setBackgroundColor:[UIColor wetAsphaltColor]];
+    [self.picker setTintColor:[UIColor cloudsColor]];
     // Do any additional setup after loading the view.
     self.categories = [[NSArray alloc]initWithObjects:@"dogs",@"cats",@"humor",@"scenic",@"Todd Sproull",@"all", nil];
     [self.navigationItem setTitle:@"Categories"];
@@ -49,7 +53,19 @@
     return [categories count];
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    
     return [categories objectAtIndex:row];
+}
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, pickerView.frame.size.width, 44)];
+    label.backgroundColor = [UIColor wetAsphaltColor];
+    label.textColor = [UIColor cloudsColor];
+    label.font = [UIFont flatFontOfSize:24];
+    label.text = [categories objectAtIndex:row];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    return label;
 }
 
 - (void)didReceiveMemoryWarning

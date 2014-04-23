@@ -16,6 +16,7 @@
 **/
 
 #import "ViewController.h"
+#import "FlatUIKit.h"
 
 @interface ViewController ()
 
@@ -25,10 +26,16 @@
 
 - (void)viewDidLoad
 {
+    [UIBarButtonItem configureFlatButtonsWithColor:[UIColor carrotColor]
+                                  highlightedColor:[UIColor midnightBlueColor]
+                                      cornerRadius:3];
+    
     images = [[NSMutableArray alloc] init];
     count = 0;
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
+    
+    [self.buttonview setBackgroundColor:[UIColor peterRiverColor]];
     
     UISwipeGestureRecognizer *rightSwipe=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UIImage *temp = [UIImage imageNamed:@"GSjvDeN.jpg"];

@@ -7,6 +7,7 @@
 //
 
 #import "AccountViewController.h"
+#import "FlatUIKit.h"
 
 @interface AccountViewController ()
 
@@ -26,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor wetAsphaltColor]];
     // Do any additional setup after loading the view.
     [self.navigationItem setTitle:@"Account"];
 }

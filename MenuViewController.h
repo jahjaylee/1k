@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FlatUIKit.h"
 
-@interface MenuViewController : UITableViewController
-
-@property NSArray *menuItems;
+@interface MenuViewController : UIViewController
+@property FUIButton* b1;
+@property FUIButton* b2;
+@property FUIButton* b3;
+@property FUIButton* b4;
+-(void)segue:(id)sender;
 @end

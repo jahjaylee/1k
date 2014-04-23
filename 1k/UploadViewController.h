@@ -16,7 +16,10 @@
     AssetsAccessor *assetsAccessor;
     NSURL *imageURL;
 }
+@property (strong, nonatomic) IBOutlet UILabel *l1;
+@property (strong, nonatomic) IBOutlet UIButton *l3;
 
+@property (strong, nonatomic) IBOutlet UIButton *l2;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *selectButton;
