@@ -36,6 +36,10 @@ bool alertShown = false;
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    self.objectIDs = [NSMutableArray array];
+    [self updateObjectIDs];
+    firstImageLoaded = NO;
     self.view.backgroundColor = [UIColor wetAsphaltColor];
     [UIBarButtonItem configureFlatButtonsWithColor:[UIColor carrotColor]
                                   highlightedColor:[UIColor midnightBlueColor]
@@ -53,15 +57,80 @@ bool alertShown = false;
 
     
     [self.buttonview setBackgroundColor:[UIColor peterRiverColor]];
-
-    UIImage *temp = [UIImage imageNamed:@"GSjvDeN.jpg"];
-    [images addObject:temp];
-    temp = [UIImage imageNamed:@"corgi-puppy-on-a-couch.jpg"];
-    [images addObject:temp];
-    self.mainImage.image = temp;
     
     centered = self.mainImage.frame;
+}
+
+- (void) updateObjectIDs{
+    PFQuery *query1 = [PFQuery queryWithClassName:@"dopest1k"];
+    [query1 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            //NSLog(@"Successfully retrieved %d scores.", objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                NSString *tempString = object.objectId;
+                NSLog(@"a: %@", tempString);
+                [self.objectIDs addObject:tempString];
+            }
+            
+            for (int i = 0; i < [self.objectIDs count]; i++){
+                NSLog(@"b: %@", [self.objectIDs objectAtIndex:i]);
+            }
+            
+            
+            //[self loadNextImage];
+            if (!firstImageLoaded){
+                PFQuery *tempQuery = [PFQuery queryWithClassName:@"dopest1k"];
+                [tempQuery getObjectInBackgroundWithId:[self.objectIDs objectAtIndex:0] block:^(PFObject *temp, NSError *error) {
+                    // Do something with the returned PFObject in the gameScore variable.
+                    
+                    for (int i = 0; i < [self.objectIDs count]; i++){
+                        NSLog(@"c: %@", [self.objectIDs objectAtIndex:i]);
+                    }
+                    
+                    NSString *URL = temp[@"URL"];
+                    [self downloadImageWithURL:[NSURL URLWithString:URL] completionBlock:^(BOOL succeeded, UIImage *image) {
+                        if (succeeded) {
+                            
+                           // self.currentImageID = [self.objectIDs objectAtIndex:0];
+                            self.mainImage.image = image;
+                        }
+                    }];
+                }];
+                firstImageLoaded = YES;
+                [self.objectIDs removeObjectAtIndex:0];
+            }
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
+- (void) loadNextImage{
+    NSLog(@"loadNextImage");
     
+    PFQuery *tempQuery = [PFQuery queryWithClassName:@"dopest1k"];
+    [tempQuery getObjectInBackgroundWithId:[self.objectIDs objectAtIndex:0] block:^(PFObject *temp, NSError *error) {
+        NSString *URL = temp[@"URL"];
+        //self.nextImageLikes = [temp[@"likes"] intValue];
+        //self.nextImageDislikes = [temp[@"dislikes"] intValue];
+        
+        [self downloadImageWithURL:[NSURL URLWithString:URL] completionBlock:^(BOOL succeeded, UIImage *image) {
+            if (succeeded) {
+                // change the image in the cell
+                //self.nextImageID = [self.objectIDs objectAtIndex:0];
+                self.nextImage = image;
+                NSLog(@"nextImage finished loading in the background");
+            }
+        }];
+    }];
+    [self.objectIDs removeObjectAtIndex:0];
+    if ([self.objectIDs count] == 0){
+        [self updateObjectIDs];
+    }
 }
 - (void)viewDidAppear:(BOOL)animated{
     if (!alertShown) {
@@ -95,6 +164,8 @@ bool alertShown = false;
     
     [self.navigationController setNavigationBarHidden:YES];
 }
+
+
 
 - (IBAction)leftPress:(id)sender {
     [self alertViewShow];
@@ -235,6 +306,22 @@ bool alertShown = false;
     }
 }
 
+
+- (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if ( !error )
+                               {
+                                   UIImage *image = [[UIImage alloc] initWithData:data];
+                                   completionBlock(YES,image);
+                               } else{
+                                   completionBlock(NO,nil);
+                               }
+                           }];
+}
 
 - (void)didReceiveMemoryWarning
 {
