@@ -21,6 +21,7 @@
 #import "UIColor+FlatUI.h"
 #import "UIFont+FlatUI.h"
 #import <QuartzCore/QuartzCore.h>
+#import "FlatUIKit.h"
 
 @interface ViewController ()
 
@@ -35,13 +36,18 @@ bool alertShown = false;
 - (void)viewDidLoad
 {
     self.view.backgroundColor = [UIColor wetAsphaltColor];
+    [UIBarButtonItem configureFlatButtonsWithColor:[UIColor carrotColor]
+                                  highlightedColor:[UIColor midnightBlueColor]
+                                      cornerRadius:3];
     
     images = [[NSMutableArray alloc] init];
     count = 0;
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
     
+    [self.buttonview setBackgroundColor:[UIColor peterRiverColor]];
     
+    UISwipeGestureRecognizer *rightSwipe=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UIImage *temp = [UIImage imageNamed:@"GSjvDeN.jpg"];
     [images addObject:temp];
     temp = [UIImage imageNamed:@"corgi-puppy-on-a-couch.jpg"];
