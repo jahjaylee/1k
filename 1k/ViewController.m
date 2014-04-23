@@ -14,7 +14,7 @@
  
  
 **/
-
+#import <Parse/Parse.h>
 #import "ViewController.h"
 #import "FUIAlertView.h"
 #import "FUIButton.h"
@@ -28,6 +28,7 @@
 @end
 
 @implementation ViewController
+@synthesize firstImageLoaded;
 
 bool xSwipe = false;
 bool ySwipe = false;
@@ -42,8 +43,14 @@ bool alertShown = false;
     
     images = [[NSMutableArray alloc] init];
     count = 0;
-    [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
+
+//    UIImage *temp = [UIImage imageNamed:@"GSjvDeN.jpg"];
+//    [images addObject:temp];
+//    temp = [UIImage imageNamed:@"corgi-puppy-on-a-couch.jpg"];
+//    [images addObject:temp];
+//    self.mainImage.image = temp;
+
     
     [self.buttonview setBackgroundColor:[UIColor peterRiverColor]];
 
@@ -92,10 +99,12 @@ bool alertShown = false;
 - (IBAction)leftPress:(id)sender {
     [self alertViewShow];
     [self animateImage:YES];
+    [self loadNextImage];
 }
 
 - (IBAction)rightPress:(id)sender {
     [self animateImage:NO];
+    [self loadNextImage];
 }
 
 - (void) doBackgroundColorAnimation: (UIColor*) color {
@@ -119,7 +128,8 @@ bool alertShown = false;
         
     }completion:^(BOOL finished){
         //self.mainImage.frame = CGRectMake(175, 300, 0, 0);
-        self.mainImage.image = [images objectAtIndex:(count+1)%2];
+        self.mainImage.image = self.nextImage;
+        //self.currentImageID = self.nextImageID;
         self.mainImage.frame = centered;
         self.mainImage.alpha = 0.0f;
         [UIView animateWithDuration:0.5 animations:^{
@@ -140,7 +150,8 @@ bool alertShown = false;
         [self.mainImage setFrame:end];
         self.view.backgroundColor = isDown ? [UIColor sunflowerColor] : [UIColor belizeHoleColor];
     }completion:^(BOOL finished){
-        self.mainImage.image = [images objectAtIndex:(count+1)%2];
+        self.mainImage.image = self.nextImage;
+        //self.currentImageID = self.nextImageID;
         self.mainImage.frame = centered;
         self.mainImage.alpha = 0.0f;
         [UIView animateWithDuration:0.5 animations:^{
@@ -179,18 +190,35 @@ bool alertShown = false;
     {
         NSLog(@"%f",recognizer.view.center.x + translation.x);
         if(recognizer.view.center.x + translation.x > 350){
-            NSLog(@"1");
+            NSLog(@"1");//like
+            
+//            PFQuery *tempQuery = [PFQuery queryWithClassName:@"dopest1k"];
+//            [tempQuery getObjectInBackgroundWithId:self.currentImageID block:^(PFObject *temp, NSError *error) {
+//                [temp incrementKey:@"likes"];
+//                [temp saveInBackground];
+//            }];
+            
             [self animateImage:NO];
+            [self loadNextImage];
             //_mainImage.image = [self colorShit:temp whatColor:[UIColor greenColor]];
         }
         else if(recognizer.view.center.x + translation.x < 0){
-            NSLog(@"2");
+            NSLog(@"2");//dislike
+            
+//            PFQuery *tempQuery = [PFQuery queryWithClassName:@"dopest1k"];
+//            [tempQuery getObjectInBackgroundWithId:self.currentImageID block:^(PFObject *temp, NSError *error) {
+//                [temp incrementKey:@"dislikes"];
+//                [temp saveInBackground];
+//            }];
+            
             [self animateImage:YES];
+            [self loadNextImage];
             //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
         }
         else if(recognizer.view.center.y + translation.y > 300){
             NSLog(@"3");
             [self animateUpImage:NO];
+            [self loadNextImage];
             //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
         }
 //        else if(recognizer.view.center.y + translation.y < 0){

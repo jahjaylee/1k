@@ -19,5 +19,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
+@property UIImage *nextImage;
+@property NSMutableArray* objectIDs;
+@property bool firstImageLoaded;
+@property NSString *currentImageID;
+@property NSString *nextImageID;
+
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @end

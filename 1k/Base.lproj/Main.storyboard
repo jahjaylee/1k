@@ -23,7 +23,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="corgi-puppy-on-a-couch.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="h8c-Wp-SNf">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h8c-Wp-SNf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="501"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <gestureRecognizers/>
@@ -380,7 +380,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="corgi-puppy-on-a-couch.jpg" width="550" height="625"/>
         <image name="icon_11796.png" width="1200" height="1200"/>
         <image name="icon_18122.png" width="1200" height="1200"/>
         <image name="icon_18123.png" width="1200" height="1200"/>
