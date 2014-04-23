@@ -16,6 +16,11 @@
 **/
 
 #import "ViewController.h"
+#import "FUIAlertView.h"
+#import "FUIButton.h"
+#import "UIColor+FlatUI.h"
+#import "UIFont+FlatUI.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController ()
 
@@ -23,28 +28,54 @@
 
 @implementation ViewController
 
+bool xSwipe = false;
+bool ySwipe = false;
+bool alertShown = false;
+
 - (void)viewDidLoad
 {
+    self.view.backgroundColor = [UIColor wetAsphaltColor];
+    
     images = [[NSMutableArray alloc] init];
     count = 0;
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
     
-    UISwipeGestureRecognizer *rightSwipe=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    
     UIImage *temp = [UIImage imageNamed:@"GSjvDeN.jpg"];
     [images addObject:temp];
     temp = [UIImage imageNamed:@"corgi-puppy-on-a-couch.jpg"];
     [images addObject:temp];
     self.mainImage.image = temp;
+    
     centered = self.mainImage.frame;
-    rightSwipe.direction=UISwipeGestureRecognizerDirectionRight;
     
-    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
-    
-    [self.view addGestureRecognizer:leftSwipe];
-    [self.view addGestureRecognizer:rightSwipe];
-	// Do any additional setup after loading the view, typically from a nib.
+}
+- (void)viewDidAppear:(BOOL)animated{
+    if (!alertShown) {
+        [self alertViewShow];
+        alertShown = true;
+    }
+
+}
+
+- (void)alertViewShow {
+    NSLog(@"alert pop-up");
+    FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"1k User Manual"
+                                                          message:@"Swipe Left = Downvote. \n Swipe Right = Upvote. \n Swipe Down = Save."
+                                                         delegate:nil cancelButtonTitle:@"Start Swipin"
+                                                otherButtonTitles: nil];
+    alertView.titleLabel.textColor = [UIColor cloudsColor];
+    alertView.titleLabel.font = [UIFont boldFlatFontOfSize:20];
+    alertView.messageLabel.textColor = [UIColor cloudsColor];
+    alertView.messageLabel.font = [UIFont flatFontOfSize:20];
+    alertView.backgroundOverlay.backgroundColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.8];
+    alertView.alertContainer.backgroundColor = [UIColor peterRiverColor];
+    alertView.defaultButtonColor = [UIColor carrotColor];
+    alertView.defaultButtonShadowColor = [UIColor asbestosColor];
+    alertView.defaultButtonFont = [UIFont boldFlatFontOfSize:16];
+    alertView.defaultButtonTitleColor = [UIColor cloudsColor];
+    [alertView show];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -53,14 +84,8 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
-- (IBAction)handleSwipe:(id)sender{
-  /*  NSLog(@"Hello?");
-    _mainImage.image = [images objectAtIndex:count];
-    count++;
-    count%=2;*/
-}
-
 - (IBAction)leftPress:(id)sender {
+    [self alertViewShow];
     [self animateImage:YES];
 }
 
@@ -85,7 +110,7 @@
     CGRect end = CGRectMake(isLeft ? -500 : 500, self.mainImage.frame.origin.y, self.mainImage.frame.size.width, self.mainImage.frame.size.height);
     [UIView animateWithDuration:.5 animations:^{
         [self.mainImage setFrame:end];
-        [self doBackgroundColorAnimation:isLeft ? [UIColor redColor] : [UIColor greenColor]];
+        [self doBackgroundColorAnimation:isLeft ? [UIColor pomegranateColor] : [UIColor emerlandColor]];
         
     }completion:^(BOOL finished){
         //self.mainImage.frame = CGRectMake(175, 300, 0, 0);
@@ -93,8 +118,7 @@
         self.mainImage.frame = centered;
         self.mainImage.alpha = 0.0f;
         [UIView animateWithDuration:0.5 animations:^{
-            
-            self.view.backgroundColor = [UIColor blackColor];
+            self.view.backgroundColor = [UIColor wetAsphaltColor];
             self.mainImage.alpha = 1.0f;
         }];
     }];
@@ -109,11 +133,15 @@
     CGRect end = CGRectMake(self.mainImage.frame.origin.x, isDown ? -800 : 800, self.mainImage.frame.size.width, self.mainImage.frame.size.height);
     [UIView animateWithDuration:.5 animations:^{
         [self.mainImage setFrame:end];
-        self.view.backgroundColor = isDown ? [UIColor blueColor] : [UIColor yellowColor];
+        self.view.backgroundColor = isDown ? [UIColor sunflowerColor] : [UIColor belizeHoleColor];
     }completion:^(BOOL finished){
         self.mainImage.image = [images objectAtIndex:(count+1)%2];
         self.mainImage.frame = centered;
-        self.view.backgroundColor = [UIColor blackColor];
+        self.mainImage.alpha = 0.0f;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.view.backgroundColor = [UIColor wetAsphaltColor];
+            self.mainImage.alpha = 1.0f;
+        }];
     }];
     //self.mainImage.image = [images objectAtIndex:count];
     count++;
@@ -124,8 +152,9 @@
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
     
     CGPoint translation = [recognizer translationInView:self.view];
-    if(abs(translation.x)>abs(translation.y)){
+    if (!ySwipe && abs(translation.x)>abs(translation.y)){
         NSLog(@"X swipe");
+        xSwipe = true;
         recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
                                              self.view.center.y-33.5);
     }
@@ -133,8 +162,9 @@
         //I don't know why this works but you must have this if statement
         //For some reason if you don't handle the middle case where translation.x = translation.y it doesnt work
     }
-    else{
+    else if (!xSwipe) {
         NSLog(@"Y swipe");
+        ySwipe = true;
         recognizer.view.center = CGPointMake(self.view.center.x,
                                              recognizer.view.center.y + translation.y);
     }
@@ -158,51 +188,20 @@
             [self animateUpImage:NO];
             //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
         }
-        else if(recognizer.view.center.y + translation.y < 0){
-            NSLog(@"4");
-            [self animateUpImage:YES];
-            //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
-        }
+//        else if(recognizer.view.center.y + translation.y < 0){
+//            NSLog(@"4");
+//            [self animateUpImage:YES];
+//            //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
+//        }
         else{
             NSLog(@"5");
             [UIView animateWithDuration:.5 animations:^{[self.mainImage setFrame:centered];}];
         }
+        xSwipe = false;
+        ySwipe = false;
     }
 }
 
--(UIImage*)colorShit:(UIImage*) image whatColor:(UIColor*)color{
-    UIImage *img = image;
-    
-    // begin a new image context, to draw our colored image onto
-    UIGraphicsBeginImageContext(img.size);
-    
-    // get a reference to that context we created
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    // set the fill color
-    [color setFill];
-    
-    // translate/flip the graphics context (for transforming from CG* coords to UI* coords
-    CGContextTranslateCTM(context, 0, img.size.height);
-    CGContextScaleCTM(context, 1.0, -1.0);
-    
-    // set the blend mode to color burn, and the original image
-    CGContextSetBlendMode(context, kCGBlendModeColorBurn);
-    CGRect rect = CGRectMake(0, 0, img.size.width, img.size.height);
-    CGContextDrawImage(context, rect, img.CGImage);
-    
-    // set a mask that matches the shape of the image, then draw (color burn) a colored rectangle
-    CGContextClipToMask(context, rect, img.CGImage);
-    CGContextAddRect(context, rect);
-    CGContextDrawPath(context,kCGPathFill);
-    
-    // generate a new UIImage from the graphics context we drew onto
-    UIImage *coloredImg = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    //return the color-burned image
-    return coloredImg;
-}
 
 - (void)didReceiveMemoryWarning
 {
