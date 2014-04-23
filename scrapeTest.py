@@ -8,5 +8,5 @@ for x in submissions:
 	if ("imgur") in x.url and x.score>1000:
 		print(x.url)
 		print(x.score)
-
+		print(x.title)
 
