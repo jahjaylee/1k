@@ -7,6 +7,7 @@
 //
 
 #import "UploadViewController.h"
+#import "FlatUIKit.h"
 
 @interface UploadViewController ()
 
@@ -26,8 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self.view setBackgroundColor:[UIColor wetAsphaltColor]];
     assetsAccessor = [[AssetsAccessor alloc] initWithDelegate:self];
+    [self.l1 setTextColor:[UIColor cloudsColor]];
+    [self.l2.titleLabel setTextColor:[UIColor cloudsColor]];
+    [self.l3.titleLabel setTextColor:[UIColor cloudsColor]];
     self.titleTextField.delegate = self;
     self.descriptionTextField.delegate = self;
 }

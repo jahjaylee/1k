@@ -7,6 +7,7 @@
 //
 
 #import "HistoryViewController.h"
+#import "FlatUIKit.h"
 
 @interface HistoryViewController ()
 
@@ -27,6 +28,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view setBackgroundColor:[UIColor wetAsphaltColor]];
     [self.navigationItem setTitle:@"History"];
 }
 
