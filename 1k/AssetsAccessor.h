@@ -20,7 +20,7 @@
 
 @interface AssetsAccessor : NSObject {
     BOOL isGettingMultipleAssets;
-    int numURLs;
+    NSUInteger numURLs;
     NSMutableArray *assetsArray;
 }
 
