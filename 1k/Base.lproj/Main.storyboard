@@ -29,6 +29,7 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="mYg-6R-mLB" appends="YES" id="gSh-GL-XIh"/>
+                                    <outletCollection property="gestureRecognizers" destination="EEp-0K-eX7" appends="YES" id="NH6-l9-vpC"/>
                                 </connections>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNy-bG-aPt">
@@ -68,12 +69,20 @@
                                     <action selector="leftPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="75x-UE-2WW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrY-zx-Fmf">
+                                <rect key="frame" x="139" y="464" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
                     <navigationItem key="navigationItem" id="MH6-jf-J4c"/>
                     <connections>
+                        <outlet property="imgInfoLabel" destination="OrY-zx-Fmf" id="TBP-bp-JFk"/>
                         <outlet property="leftButton" destination="30w-Sk-myj" id="wjx-Ew-g2v"/>
                         <outlet property="mainImage" destination="h8c-Wp-SNf" id="8B9-qH-xIA"/>
                         <outlet property="rightButton" destination="MaI-Dh-S4L" id="kbJ-Kr-dm9"/>
@@ -85,6 +94,11 @@
                         <action selector="handlePan:" destination="vXZ-lx-hvc" id="j2u-Jm-hwE"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="EEp-0K-eX7">
+                    <connections>
+                        <action selector="handleTap:" destination="vXZ-lx-hvc" id="Be2-EY-idC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="463" y="32"/>
         </scene>

@@ -15,6 +15,7 @@
  
 **/
 
+#import <FlatUIKit.h>
 #import "ViewController.h"
 
 @interface ViewController ()
@@ -25,10 +26,13 @@
 
 - (void)viewDidLoad
 {
+    hasOverlay = NO;
     images = [[NSMutableArray alloc] init];
+    
     count = 0;
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
+    
     
     UISwipeGestureRecognizer *rightSwipe=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UIImage *temp = [UIImage imageNamed:@"GSjvDeN.jpg"];
@@ -42,6 +46,10 @@
     UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     
+
+    textView = [[UIView alloc] initWithFrame:centered];
+    _imgInfoLabel.hidden = YES;
+    textView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     [self.view addGestureRecognizer:leftSwipe];
     [self.view addGestureRecognizer:rightSwipe];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -119,6 +127,24 @@
     count++;
     count%=2;
     
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    if(hasOverlay){
+        [textView removeFromSuperview];
+        _imgInfoLabel.hidden=YES;
+        hasOverlay = !hasOverlay;
+    }
+}
+
+- (IBAction)handleTap:(id)sender {
+    if(!hasOverlay){
+        _imgInfoLabel.text = @"label";
+        _imgInfoLabel.hidden = NO;
+        [self.view addSubview:textView];
+        [self.view bringSubviewToFront:_imgInfoLabel];
+        hasOverlay = !hasOverlay;
+    }
 }
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {

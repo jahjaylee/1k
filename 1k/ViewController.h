@@ -14,7 +14,10 @@
     CGRect centered;
     UIColor *overlayColor;
     UIImageView *startImage;
+    BOOL hasOverlay;
+    UIView *textView;
 }
+@property (weak, nonatomic) IBOutlet UILabel *imgInfoLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
