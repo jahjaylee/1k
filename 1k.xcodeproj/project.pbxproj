@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043D92DE1908B5C70033E1D0 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D92DD1908B5C70033E1D0 /* HistoryTableViewController.m */; };
 		044318DC18F78C3600114472 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044318DB18F78C3600114472 /* UploadViewController.m */; };
 		044318E118F791CE00114472 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044318E018F791CE00114472 /* MenuViewController.m */; };
 		044318E418F7954500114472 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044318E318F7954500114472 /* CategoryViewController.m */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043D92DC1908B5C70033E1D0 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		043D92DD1908B5C70033E1D0 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
 		044318DA18F78C3600114472 /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
 		044318DB18F78C3600114472 /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
 		044318DF18F791CE00114472 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = ../MenuViewController.h; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 				69E39A8A18ECF9A1002FC82C /* AppDelegate.h */,
 				69E39A8B18ECF9A1002FC82C /* AppDelegate.m */,
 				69E39A8D18ECF9A1002FC82C /* Main.storyboard */,
+				043D92DC1908B5C70033E1D0 /* HistoryTableViewController.h */,
+				043D92DD1908B5C70033E1D0 /* HistoryTableViewController.m */,
 				044318EE18F7A1CE00114472 /* AccountViewController.h */,
 				044318EF18F7A1CE00114472 /* AccountViewController.m */,
 				044318E218F7954500114472 /* CategoryViewController.h */,
@@ -287,7 +292,7 @@
 		69E39A7018ECF9A1002FC82C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jay Lee";
 				TargetAttributes = {
 					69E39A9818ECF9A2002FC82C = {
@@ -383,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043D92DE1908B5C70033E1D0 /* HistoryTableViewController.m in Sources */,
 				69E39A9218ECF9A1002FC82C /* ViewController.m in Sources */,
 				69E39A8C18ECF9A1002FC82C /* AppDelegate.m in Sources */,
 				69E39A8818ECF9A1002FC82C /* main.m in Sources */,
@@ -448,7 +454,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -487,7 +492,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -547,7 +551,6 @@
 		69E39AAE18ECF9A2002FC82C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/1k.app/1k";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -570,7 +573,6 @@
 		69E39AAF18ECF9A2002FC82C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/1k.app/1k";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

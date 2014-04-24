@@ -16,16 +16,13 @@
     AssetsAccessor *assetsAccessor;
     NSURL *imageURL;
 }
-@property (strong, nonatomic) IBOutlet UILabel *l1;
-@property (strong, nonatomic) IBOutlet UIButton *l3;
 
-@property (strong, nonatomic) IBOutlet UIButton *l2;
 
+@property (strong, nonatomic) IBOutlet UILabel *Title;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIButton *selectButton;
-@property (weak, nonatomic) IBOutlet UIButton *uploadButton;
+
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
-@property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
+
 @property (weak, nonatomic) IBOutlet UILabel *linkTextView;
 
 @property UIImage *uploadImage;

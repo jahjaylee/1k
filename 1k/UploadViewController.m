@@ -29,11 +29,38 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor wetAsphaltColor]];
     assetsAccessor = [[AssetsAccessor alloc] initWithDelegate:self];
-    [self.l1 setTextColor:[UIColor cloudsColor]];
-    [self.l2.titleLabel setTextColor:[UIColor cloudsColor]];
-    [self.l3.titleLabel setTextColor:[UIColor cloudsColor]];
+    [self.linkTextView setTextColor:[UIColor cloudsColor]];
+    [self.Title setTextColor:[UIColor cloudsColor]];
     self.titleTextField.delegate = self;
-    self.descriptionTextField.delegate = self;
+
+    
+    FUIButton * select = [[FUIButton alloc]initWithFrame:CGRectMake(108, 461, 96, 30)];
+    select.buttonColor = [UIColor carrotColor];
+    select.shadowColor = [UIColor pumpkinColor];
+    select.shadowHeight = 3.0f;
+    select.cornerRadius = 6.0f;
+    select.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+    [select setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+    [select setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
+    [select setTitle:@"Select" forState:UIControlStateNormal];
+    [select addTarget:self action:@selector(pressSelectImage:) forControlEvents:UIControlEventTouchUpInside];
+    FUIButton * upload = [[FUIButton alloc]initWithFrame:CGRectMake(108, 499, 96, 30)];
+    upload.buttonColor = [UIColor carrotColor];
+    upload.shadowColor = [UIColor pumpkinColor];
+    upload.shadowHeight = 3.0f;
+    upload.cornerRadius = 6.0f;
+    upload.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+    [upload setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+    [upload setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
+    [upload setTitle:@"Upload" forState:UIControlStateNormal];
+    [upload addTarget:self action:@selector(pressUploadButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:upload];
+    [self.view addSubview:select];
+    
+    [self.imageView setBackgroundColor:[UIColor midnightBlueColor]];
+    
+    
 }
 
 #pragma mark - IBActions
@@ -47,7 +74,6 @@
     NSString *clientID = @"a1200e4c3161c4d";
     
     NSString *title = [[self titleTextField] text];
-    NSString *description = [[self descriptionTextField] text];
     
     [assetsAccessor getAssetByURL:imageURL];
     
@@ -58,7 +84,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSData *imageData = UIImageJPEGRepresentation(_uploadImage, 1.0f);
         
-        [MLIMGURUploader uploadPhoto:imageData title:title description:description imgurClientID:clientID completionBlock:^(NSString *result) {
+        [MLIMGURUploader uploadPhoto:imageData title:title description:nil imgurClientID:clientID completionBlock:^(NSString *result) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                 [[weakSelf linkTextView] setText:result];

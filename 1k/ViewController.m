@@ -47,7 +47,7 @@ bool alertShown = false;
     
     [self.buttonview setBackgroundColor:[UIColor peterRiverColor]];
     
-    UISwipeGestureRecognizer *rightSwipe=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    //UISwipeGestureRecognizer *rightSwipe=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UIImage *temp = [UIImage imageNamed:@"GSjvDeN.jpg"];
     [images addObject:temp];
     temp = [UIImage imageNamed:@"corgi-puppy-on-a-couch.jpg"];
