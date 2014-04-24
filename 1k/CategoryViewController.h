@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CategoryViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIPickerView *picker;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSArray *categories;
 @end

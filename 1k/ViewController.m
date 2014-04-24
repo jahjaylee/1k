@@ -141,10 +141,9 @@ bool alertShown = false;
 }
 
 - (void)alertViewShow {
-    NSLog(@"alert pop-up");
     FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"1k User Manual"
                                                           message:@"Swipe Left = Downvote. \n Swipe Right = Upvote. \n Swipe Down = Save."
-                                                         delegate:nil cancelButtonTitle:@"Start Swipin"
+                                                         delegate:nil cancelButtonTitle:@"Start Swipin\'"
                                                 otherButtonTitles: nil];
     alertView.titleLabel.textColor = [UIColor cloudsColor];
     alertView.titleLabel.font = [UIFont boldFlatFontOfSize:20];
@@ -304,7 +303,6 @@ bool alertShown = false;
         ySwipe = false;
     }
 }
-
 
 - (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
 {
