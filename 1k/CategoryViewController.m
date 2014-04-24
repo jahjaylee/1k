@@ -28,44 +28,49 @@
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor wetAsphaltColor]];
-    [self.picker setBackgroundColor:[UIColor wetAsphaltColor]];
-    [self.picker setTintColor:[UIColor cloudsColor]];
     // Do any additional setup after loading the view.
-    self.categories = [[NSArray alloc]initWithObjects:@"dogs",@"cats",@"humor",@"scenic",@"Todd Sproull",@"all", nil];
+    self.categories = [[NSArray alloc]initWithObjects:@"Dogs",@"Cats",@"Humor",@"Scenic",@"Todd Sproull",@"all", nil];
     [self.navigationItem setTitle:@"Categories"];
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.tableView.backgroundColor = [UIColor wetAsphaltColor];
+    self.tableView.separatorColor = [UIColor carrotColor];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    NSUInteger numTaps = [[touches anyObject] tapCount];
-    if(numTaps >= 2) {
-        [self performSegueWithIdentifier:@"menuToMain" sender:nil];
-    }
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    NSLog(@"selected %@", [categories objectAtIndex:indexPath.row]);
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -
-#pragma mark PickerView DataSource
+#pragma mark TableView DataSource
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [categories count];
 }
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    
-    return [categories objectAtIndex:row];
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    // The header for the section is the region name -- get this from the region at the section index.
+    return nil;
 }
 
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
-{
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, pickerView.frame.size.width, 44)];
-    label.backgroundColor = [UIColor wetAsphaltColor];
-    label.textColor = [UIColor cloudsColor];
-    label.font = [UIFont flatFontOfSize:24];
-    label.text = [categories objectAtIndex:row];
-    [label setTextAlignment:NSTextAlignmentCenter];
-    return label;
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *MyIdentifier = @"MyReuseIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
+    }
+    cell.textLabel.text = [categories objectAtIndex:indexPath.row];
+    cell.textLabel.font = [UIFont flatFontOfSize:16];
+    cell.textLabel.textColor = [UIColor cloudsColor];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.backgroundColor = [UIColor wetAsphaltColor];
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning

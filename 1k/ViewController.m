@@ -29,7 +29,6 @@
 
 @implementation ViewController
 @synthesize firstImageLoaded;
-@synthesize currentTitle;
 @synthesize nextTitle;
 
 bool xSwipe = false;
@@ -38,7 +37,10 @@ bool alertShown = false;
 
 - (void)viewDidLoad
 {
-    self.imgLabel = [[UILabel alloc] init];
+    _imgLabel.hidden = false;
+    _imgLabelBackground.hidden = false;
+    _imgLabel.alpha = 0;
+    _imgLabelBackground.alpha = 0;
     [super viewDidLoad];
     self.objectIDs = [NSMutableArray array];
     [self updateObjectIDs];
@@ -58,7 +60,8 @@ bool alertShown = false;
 //    [images addObject:temp];
 //    self.mainImage.image = temp;
 
-    
+    _imgLabel.hidden = YES;
+    _imgLabelBackground.hidden = YES;
     [self.buttonview setBackgroundColor:[UIColor peterRiverColor]];
     
     centered = self.mainImage.frame;
@@ -121,10 +124,10 @@ bool alertShown = false;
     PFQuery *tempQuery = [PFQuery queryWithClassName:@"dopest1k"];
     [tempQuery getObjectInBackgroundWithId:[self.objectIDs objectAtIndex:0] block:^(PFObject *temp, NSError *error) {
         NSString *URL = temp[@"URL"];
+        self.nextTitle = temp[@"title"];
         //self.nextImageLikes = [temp[@"likes"] intValue];
         //self.nextImageDislikes = [temp[@"dislikes"] intValue];
         
-        self.nextTitle = temp[@"title"];
         [self downloadImageWithURL:[NSURL URLWithString:URL] completionBlock:^(BOOL succeeded, UIImage *image) {
             if (succeeded) {
                 // change the image in the cell
@@ -148,10 +151,9 @@ bool alertShown = false;
 }
 
 - (void)alertViewShow {
-    NSLog(@"alert pop-up");
     FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"1k User Manual"
                                                           message:@"Swipe Left = Downvote. \n Swipe Right = Upvote. \n Swipe Down = Save."
-                                                         delegate:nil cancelButtonTitle:@"Start Swipin"
+                                                         delegate:nil cancelButtonTitle:@"Start Swipin\'"
                                                 otherButtonTitles: nil];
     alertView.titleLabel.textColor = [UIColor cloudsColor];
     alertView.titleLabel.font = [UIFont boldFlatFontOfSize:20];
@@ -175,7 +177,6 @@ bool alertShown = false;
 
 
 - (IBAction)leftPress:(id)sender {
-    [self alertViewShow];
     [self animateImage:YES];
     [self loadNextImage];
 }
@@ -245,6 +246,22 @@ bool alertShown = false;
     count++;
     count%=2;
     
+}
+- (IBAction)handleTap:(id)sender {
+    NSString *currentTitle = @"Temp";
+    [UIView animateWithDuration:.25 animations:^{
+        NSLog(@"hello");
+        _imgLabel.hidden = false;
+        _imgLabelBackground.hidden = false;
+        if(_imgLabel.alpha ==0){
+            _imgLabel.alpha = 1;
+            _imgLabelBackground.alpha = .3;
+        }
+        else{
+            _imgLabel.alpha = 0;
+            _imgLabelBackground.alpha = 0;
+        }
+    }];
 }
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
@@ -316,7 +333,6 @@ bool alertShown = false;
         ySwipe = false;
     }
 }
-
 
 - (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
 {
