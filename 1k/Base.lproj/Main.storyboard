@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sDT-vu-iCP">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--View Controller - Main-->
@@ -29,6 +29,7 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="mYg-6R-mLB" appends="YES" id="gSh-GL-XIh"/>
+                                    <outletCollection property="gestureRecognizers" destination="JyC-6U-USS" appends="YES" id="48u-Jv-UpN"/>
                                 </connections>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNy-bG-aPt">
@@ -68,6 +69,20 @@
                                     <action selector="leftPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="75x-UE-2WW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbY-ub-TgI">
+                                <rect key="frame" x="0.0" y="472" width="320" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqk-f4-ish">
+                                <rect key="frame" x="20" y="472" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -75,6 +90,8 @@
                     <navigationItem key="navigationItem" id="MH6-jf-J4c"/>
                     <connections>
                         <outlet property="buttonview" destination="UNy-bG-aPt" id="Mfc-Qu-9rm"/>
+                        <outlet property="imgLabel" destination="oqk-f4-ish" id="2Me-Z0-BYf"/>
+                        <outlet property="imgLabelBackground" destination="IbY-ub-TgI" id="owJ-js-Ahj"/>
                         <outlet property="leftButton" destination="30w-Sk-myj" id="wjx-Ew-g2v"/>
                         <outlet property="mainImage" destination="h8c-Wp-SNf" id="8B9-qH-xIA"/>
                         <outlet property="rightButton" destination="MaI-Dh-S4L" id="kbJ-Kr-dm9"/>
@@ -86,6 +103,11 @@
                         <action selector="handlePan:" destination="vXZ-lx-hvc" id="j2u-Jm-hwE"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="JyC-6U-USS">
+                    <connections>
+                        <action selector="handleTap:" destination="vXZ-lx-hvc" id="q2D-md-OW5"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="463" y="32"/>
         </scene>

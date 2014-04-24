@@ -36,6 +36,10 @@ bool alertShown = false;
 
 - (void)viewDidLoad
 {
+    _imgLabel.hidden = false;
+    _imgLabelBackground.hidden = false;
+    _imgLabel.alpha = 0;
+    _imgLabelBackground.alpha = 0;
     [super viewDidLoad];
     self.objectIDs = [NSMutableArray array];
     [self updateObjectIDs];
@@ -55,7 +59,8 @@ bool alertShown = false;
 //    [images addObject:temp];
 //    self.mainImage.image = temp;
 
-    
+    _imgLabel.hidden = YES;
+    _imgLabelBackground.hidden = YES;
     [self.buttonview setBackgroundColor:[UIColor peterRiverColor]];
     
     centered = self.mainImage.frame;
@@ -232,6 +237,22 @@ bool alertShown = false;
     count++;
     count%=2;
     
+}
+- (IBAction)handleTap:(id)sender {
+    NSString *currentTitle = @"Temp";
+    [UIView animateWithDuration:.25 animations:^{
+        NSLog(@"hello");
+        _imgLabel.hidden = false;
+        _imgLabelBackground.hidden = false;
+        if(_imgLabel.alpha ==0){
+            _imgLabel.alpha = 1;
+            _imgLabelBackground.alpha = .3;
+        }
+        else{
+            _imgLabel.alpha = 0;
+            _imgLabelBackground.alpha = 0;
+        }
+    }];
 }
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
