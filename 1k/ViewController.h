@@ -27,5 +27,7 @@
 @property NSString *currentImageID;
 @property NSString *nextImageID;
 
+@property NSString *nextTitle;
+
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @end

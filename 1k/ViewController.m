@@ -13,7 +13,7 @@
  Examine reddit and imgur API's
  
  
-**/
+ **/
 #import <Parse/Parse.h>
 #import "ViewController.h"
 #import "FUIAlertView.h"
@@ -29,6 +29,7 @@
 
 @implementation ViewController
 @synthesize firstImageLoaded;
+@synthesize nextTitle;
 
 bool xSwipe = false;
 bool ySwipe = false;
@@ -52,13 +53,13 @@ bool alertShown = false;
     images = [[NSMutableArray alloc] init];
     count = 0;
     [self.navigationController setNavigationBarHidden:YES];
-
-//    UIImage *temp = [UIImage imageNamed:@"GSjvDeN.jpg"];
-//    [images addObject:temp];
-//    temp = [UIImage imageNamed:@"corgi-puppy-on-a-couch.jpg"];
-//    [images addObject:temp];
-//    self.mainImage.image = temp;
-
+    
+    //    UIImage *temp = [UIImage imageNamed:@"GSjvDeN.jpg"];
+    //    [images addObject:temp];
+    //    temp = [UIImage imageNamed:@"corgi-puppy-on-a-couch.jpg"];
+    //    [images addObject:temp];
+    //    self.mainImage.image = temp;
+    
     _imgLabel.hidden = YES;
     _imgLabelBackground.hidden = YES;
     [self.buttonview setBackgroundColor:[UIColor peterRiverColor]];
@@ -95,10 +96,13 @@ bool alertShown = false;
                     }
                     
                     NSString *URL = temp[@"URL"];
+                    self.imgLabel.text = temp[@"title"];
+                    NSLog(@"Current Title: %@", self.imgLabel.text);
+                    
                     [self downloadImageWithURL:[NSURL URLWithString:URL] completionBlock:^(BOOL succeeded, UIImage *image) {
                         if (succeeded) {
                             
-                           // self.currentImageID = [self.objectIDs objectAtIndex:0];
+                            // self.currentImageID = [self.objectIDs objectAtIndex:0];
                             self.mainImage.image = image;
                         }
                     }];
@@ -120,6 +124,7 @@ bool alertShown = false;
     PFQuery *tempQuery = [PFQuery queryWithClassName:@"dopest1k"];
     [tempQuery getObjectInBackgroundWithId:[self.objectIDs objectAtIndex:0] block:^(PFObject *temp, NSError *error) {
         NSString *URL = temp[@"URL"];
+        self.nextTitle = temp[@"title"];
         //self.nextImageLikes = [temp[@"likes"] intValue];
         //self.nextImageDislikes = [temp[@"dislikes"] intValue];
         
@@ -142,7 +147,7 @@ bool alertShown = false;
         [self alertViewShow];
         alertShown = true;
     }
-
+    
 }
 
 - (void)alertViewShow {
@@ -186,7 +191,7 @@ bool alertShown = false;
         self.view.backgroundColor = color;
     } completion:^(BOOL finished) {
         //[UIView animateWithDuration:.25f animations:^{
-         //   self.view.backgroundColor = [UIColor whiteColor];
+        //   self.view.backgroundColor = [UIColor whiteColor];
         //}];
     }];
     
@@ -203,6 +208,8 @@ bool alertShown = false;
     }completion:^(BOOL finished){
         //self.mainImage.frame = CGRectMake(175, 300, 0, 0);
         self.mainImage.image = self.nextImage;
+        self.imgLabel.text = nextTitle;
+        NSLog(@"Current Title: %@", self.imgLabel.text);
         //self.currentImageID = self.nextImageID;
         self.mainImage.frame = centered;
         self.mainImage.alpha = 0.0f;
@@ -225,6 +232,8 @@ bool alertShown = false;
         self.view.backgroundColor = isDown ? [UIColor sunflowerColor] : [UIColor belizeHoleColor];
     }completion:^(BOOL finished){
         self.mainImage.image = self.nextImage;
+        self.imgLabel.text = nextTitle;
+        NSLog(@"Current Title: %@", self.imgLabel.text);
         //self.currentImageID = self.nextImageID;
         self.mainImage.frame = centered;
         self.mainImage.alpha = 0.0f;
@@ -275,18 +284,18 @@ bool alertShown = false;
                                              recognizer.view.center.y + translation.y);
     }
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
-
+    
     if(recognizer.state == UIGestureRecognizerStateEnded)
     {
         NSLog(@"%f",recognizer.view.center.x + translation.x);
         if(recognizer.view.center.x + translation.x > 350){
             NSLog(@"1");//like
             
-//            PFQuery *tempQuery = [PFQuery queryWithClassName:@"dopest1k"];
-//            [tempQuery getObjectInBackgroundWithId:self.currentImageID block:^(PFObject *temp, NSError *error) {
-//                [temp incrementKey:@"likes"];
-//                [temp saveInBackground];
-//            }];
+            //            PFQuery *tempQuery = [PFQuery queryWithClassName:@"dopest1k"];
+            //            [tempQuery getObjectInBackgroundWithId:self.currentImageID block:^(PFObject *temp, NSError *error) {
+            //                [temp incrementKey:@"likes"];
+            //                [temp saveInBackground];
+            //            }];
             
             [self animateImage:NO];
             [self loadNextImage];
@@ -295,11 +304,11 @@ bool alertShown = false;
         else if(recognizer.view.center.x + translation.x < 0){
             NSLog(@"2");//dislike
             
-//            PFQuery *tempQuery = [PFQuery queryWithClassName:@"dopest1k"];
-//            [tempQuery getObjectInBackgroundWithId:self.currentImageID block:^(PFObject *temp, NSError *error) {
-//                [temp incrementKey:@"dislikes"];
-//                [temp saveInBackground];
-//            }];
+            //            PFQuery *tempQuery = [PFQuery queryWithClassName:@"dopest1k"];
+            //            [tempQuery getObjectInBackgroundWithId:self.currentImageID block:^(PFObject *temp, NSError *error) {
+            //                [temp incrementKey:@"dislikes"];
+            //                [temp saveInBackground];
+            //            }];
             
             [self animateImage:YES];
             [self loadNextImage];
@@ -311,11 +320,11 @@ bool alertShown = false;
             [self loadNextImage];
             //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
         }
-//        else if(recognizer.view.center.y + translation.y < 0){
-//            NSLog(@"4");
-//            [self animateUpImage:YES];
-//            //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
-//        }
+        //        else if(recognizer.view.center.y + translation.y < 0){
+        //            NSLog(@"4");
+        //            [self animateUpImage:YES];
+        //            //_mainImage.image = [self colorShit:temp whatColor:[UIColor redColor]];
+        //        }
         else{
             NSLog(@"5");
             [UIView animateWithDuration:.5 animations:^{[self.mainImage setFrame:centered];}];
