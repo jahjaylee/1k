@@ -168,7 +168,6 @@ bool alertShown = false;
 
 
 - (IBAction)leftPress:(id)sender {
-    [self alertViewShow];
     [self animateImage:YES];
     [self loadNextImage];
 }
