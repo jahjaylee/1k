@@ -79,7 +79,7 @@ bool alertShown = false;
                 NSLog(@"a: %@", tempString);
                 [self.objectIDs addObject:tempString];
             }
-            
+            //if ([self.objectIDs count] > 0) {
             for (int i = 0; i < [self.objectIDs count]; i++){
                 NSLog(@"b: %@", [self.objectIDs objectAtIndex:i]);
             }

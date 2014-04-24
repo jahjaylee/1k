@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0433DE59190978430030834F /* generic-profile.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 0433DE58190978430030834F /* generic-profile.JPG */; };
 		043D92DE1908B5C70033E1D0 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D92DD1908B5C70033E1D0 /* HistoryTableViewController.m */; };
 		044318DC18F78C3600114472 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044318DB18F78C3600114472 /* UploadViewController.m */; };
 		044318E118F791CE00114472 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044318E018F791CE00114472 /* MenuViewController.m */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0433DE58190978430030834F /* generic-profile.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "generic-profile.JPG"; sourceTree = "<group>"; };
 		043D92DC1908B5C70033E1D0 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
 		043D92DD1908B5C70033E1D0 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
 		044318DA18F78C3600114472 /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				694A877F18F64D1D006B7AC4 /* icon_29074.png */,
 				69E39AC018F61085002FC82C /* 1k Logo Better 120x120.png */,
 				69E39ABE18F60F73002FC82C /* 1k basic Logo 120x120.png */,
+				0433DE58190978430030834F /* generic-profile.JPG */,
 				69E39AB818F60B1B002FC82C /* left.png */,
 				69E39AB918F60B1B002FC82C /* right.png */,
 				69E39AB618F6095C002FC82C /* icon_11796.png */,
@@ -389,6 +392,7 @@
 				69E39A8F18ECF9A1002FC82C /* Main.storyboard in Resources */,
 				3D41B0CD1908DD8E00102310 /* x.png in Resources */,
 				69E39AB518ED00CF002FC82C /* GSjvDeN.jpg in Resources */,
+				0433DE59190978430030834F /* generic-profile.JPG in Resources */,
 				694A878619076648006B7AC4 /* launchimagetry@2x.png in Resources */,
 				69E39AB318ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg in Resources */,
 			);
