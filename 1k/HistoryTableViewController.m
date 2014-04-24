@@ -27,8 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor wetAsphaltColor]];
     [self.navigationItem setTitle:@"History"];
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.tableView.backgroundColor = [UIColor wetAsphaltColor];
+    self.tableView.separatorColor = [UIColor carrotColor];
     
     self.history = [[NSArray alloc]initWithObjects:@"puppy on a couch", @"sliding fox",nil];
     // Uncomment the following line to preserve selection between presentations.
