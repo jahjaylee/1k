@@ -15,6 +15,7 @@
     UIColor *overlayColor;
     UIImageView *startImage;
 }
+@property (strong, nonatomic) IBOutlet UILabel *buttonview;
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
@@ -23,6 +24,9 @@
 @property bool firstImageLoaded;
 @property NSString *currentImageID;
 @property NSString *nextImageID;
+@property NSString *currentTitle;
+@property UILabel *imgLabel;
+@property NSString *nextTitle;
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @end

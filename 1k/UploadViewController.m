@@ -7,6 +7,7 @@
 //
 
 #import "UploadViewController.h"
+#import "FlatUIKit.h"
 
 @interface UploadViewController ()
 
@@ -26,13 +27,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self.view setBackgroundColor:[UIColor wetAsphaltColor]];
     assetsAccessor = [[AssetsAccessor alloc] initWithDelegate:self];
+    [self.l1 setTextColor:[UIColor cloudsColor]];
+    [self.l2.titleLabel setTextColor:[UIColor cloudsColor]];
+    [self.l3.titleLabel setTextColor:[UIColor cloudsColor]];
     self.titleTextField.delegate = self;
     self.descriptionTextField.delegate = self;
 }
 
 #pragma mark - IBActions
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self animateTextField: textField up: YES];
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self animateTextField: textField up: NO];
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 80; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
 
 - (IBAction)pressSelectImage:(id)sender {
     [assetsAccessor getAssetsGroupsWithTypes:ALAssetsGroupAll];

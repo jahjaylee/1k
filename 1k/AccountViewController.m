@@ -7,6 +7,7 @@
 //
 
 #import "AccountViewController.h"
+#import "FlatUIKit.h"
 
 @interface AccountViewController ()
 
@@ -23,11 +24,41 @@
     return self;
 }
 
+- (IBAction)loginButtonPress:(id)sender {
+    self.usernameLabel.hidden = YES;
+    self.usernameTextField.hidden = YES;
+    self.passwordLabel.hidden = YES;
+    self.passwordTextField.hidden = YES;
+    self.loginButton.hidden = YES;
+    self.profilePicImage.hidden = NO;
+    self.memberSinceLabel.hidden = NO;
+    self.memberSinceLabel2.hidden = NO;
+    self.accountLabel.hidden = NO;
+    self.emailLabel.hidden = NO;
+    [self.view endEditing:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor wetAsphaltColor]];
+    self.usernameLabel.font = [UIFont flatFontOfSize:16];
+    self.usernameLabel.textColor = [UIColor cloudsColor];
+    self.passwordLabel.font = [UIFont flatFontOfSize:16];
+    self.usernameLabel.textColor = [UIColor cloudsColor];
+    self.accountLabel.font = [UIFont flatFontOfSize:16];
+    self.usernameLabel.textColor = [UIColor cloudsColor];
+    self.emailLabel.font = [UIFont flatFontOfSize:16];
+    self.usernameLabel.textColor = [UIColor cloudsColor];
+    self.memberSinceLabel.font = [UIFont flatFontOfSize:16];
+    self.usernameLabel.textColor = [UIColor cloudsColor];
+    self.memberSinceLabel2.font = [UIFont flatFontOfSize:16];
+    self.usernameLabel.textColor = [UIColor cloudsColor];
+    
     // Do any additional setup after loading the view.
     [self.navigationItem setTitle:@"Account"];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

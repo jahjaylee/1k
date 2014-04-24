@@ -12,6 +12,8 @@
 		044318E418F7954500114472 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044318E318F7954500114472 /* CategoryViewController.m */; };
 		044318ED18F7A02500114472 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044318EC18F7A02500114472 /* HistoryViewController.m */; };
 		044318F018F7A1CE00114472 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044318EF18F7A1CE00114472 /* AccountViewController.m */; };
+		3D41B0CB190794B700102310 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D41B0CA190794B700102310 /* Parse.framework */; };
+		5002BACD1908E72E00A45DDF /* generic-profile.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 5002BACC1908E72E00A45DDF /* generic-profile.JPG */; };
 		501D2A89190760FB0049F922 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501D2A88190760FB0049F922 /* AudioToolbox.framework */; };
 		501D2A8B190761010049F922 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501D2A8A190761010049F922 /* CFNetwork.framework */; };
 		501D2A8D1907610A0049F922 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501D2A8C1907610A0049F922 /* CoreLocation.framework */; };
@@ -21,11 +23,11 @@
 		501D2A95190761240049F922 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501D2A94190761240049F922 /* Security.framework */; };
 		501D2A971907612A0049F922 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501D2A961907612A0049F922 /* StoreKit.framework */; };
 		501D2A99190761300049F922 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501D2A98190761300049F922 /* SystemConfiguration.framework */; };
-		501D2A9B190762330049F922 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501D2A9A190762330049F922 /* Parse.framework */; };
 		501D2A9E1907654A0049F922 /* FBMissingSymbols.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D2A9D1907654A0049F922 /* FBMissingSymbols.m */; };
 		608F7E810E5148D5A5C44859 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 999743150F1A46AC816DC255 /* libPods.a */; };
 		694A878018F64D1D006B7AC4 /* icon_29074.png in Resources */ = {isa = PBXBuildFile; fileRef = 694A877F18F64D1D006B7AC4 /* icon_29074.png */; };
 		694A878418F72F8C006B7AC4 /* Logo again 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 694A878318F72F8C006B7AC4 /* Logo again 120x120.png */; };
+		694A878619076648006B7AC4 /* launchimagetry@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694A878519076648006B7AC4 /* launchimagetry@2x.png */; };
 		69E39A7C18ECF9A1002FC82C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E39A7B18ECF9A1002FC82C /* Foundation.framework */; };
 		69E39A7E18ECF9A1002FC82C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E39A7D18ECF9A1002FC82C /* CoreGraphics.framework */; };
 		69E39A8018ECF9A1002FC82C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E39A7F18ECF9A1002FC82C /* UIKit.framework */; };
@@ -74,6 +76,8 @@
 		044318EC18F7A02500114472 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewController.m; path = ../HistoryViewController.m; sourceTree = "<group>"; };
 		044318EE18F7A1CE00114472 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		044318EF18F7A1CE00114472 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		3D41B0CA190794B700102310 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		5002BACC1908E72E00A45DDF /* generic-profile.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "generic-profile.JPG"; sourceTree = "<group>"; };
 		501D2A88190760FB0049F922 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		501D2A8A190761010049F922 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		501D2A8C1907610A0049F922 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -83,10 +87,10 @@
 		501D2A94190761240049F922 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		501D2A961907612A0049F922 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		501D2A98190761300049F922 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		501D2A9A190762330049F922 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		501D2A9D1907654A0049F922 /* FBMissingSymbols.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBMissingSymbols.m; path = ../FBMissingSymbols.m; sourceTree = "<group>"; };
 		694A877F18F64D1D006B7AC4 /* icon_29074.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29074.png; sourceTree = "<group>"; };
 		694A878318F72F8C006B7AC4 /* Logo again 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo again 120x120.png"; sourceTree = "<group>"; };
+		694A878519076648006B7AC4 /* launchimagetry@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchimagetry@2x.png"; sourceTree = "<group>"; };
 		696547BB40E04FE3A48544E7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		69E39A7818ECF9A1002FC82C /* 1k.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1k.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E39A7B18ECF9A1002FC82C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,7 +144,7 @@
 				69E39A7E18ECF9A1002FC82C /* CoreGraphics.framework in Frameworks */,
 				501D2A8B190761010049F922 /* CFNetwork.framework in Frameworks */,
 				501D2A89190760FB0049F922 /* AudioToolbox.framework in Frameworks */,
-				501D2A9B190762330049F922 /* Parse.framework in Frameworks */,
+				3D41B0CB190794B700102310 /* Parse.framework in Frameworks */,
 				69E39A8018ECF9A1002FC82C /* UIKit.framework in Frameworks */,
 				69E39A7C18ECF9A1002FC82C /* Foundation.framework in Frameworks */,
 				608F7E810E5148D5A5C44859 /* libPods.a in Frameworks */,
@@ -183,7 +187,7 @@
 		69E39A7A18ECF9A1002FC82C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				501D2A9A190762330049F922 /* Parse.framework */,
+				3D41B0CA190794B700102310 /* Parse.framework */,
 				501D2A98190761300049F922 /* SystemConfiguration.framework */,
 				501D2A961907612A0049F922 /* StoreKit.framework */,
 				501D2A94190761240049F922 /* Security.framework */,
@@ -205,9 +209,11 @@
 		69E39A8118ECF9A1002FC82C /* 1k */ = {
 			isa = PBXGroup;
 			children = (
+				694A878519076648006B7AC4 /* launchimagetry@2x.png */,
 				501D2A9D1907654A0049F922 /* FBMissingSymbols.m */,
 				694A878318F72F8C006B7AC4 /* Logo again 120x120.png */,
 				694A877F18F64D1D006B7AC4 /* icon_29074.png */,
+				5002BACC1908E72E00A45DDF /* generic-profile.JPG */,
 				69E39AC018F61085002FC82C /* 1k Logo Better 120x120.png */,
 				69E39ABE18F60F73002FC82C /* 1k basic Logo 120x120.png */,
 				69E39AB818F60B1B002FC82C /* icon_18122.png */,
@@ -330,6 +336,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jay Lee";
 				TargetAttributes = {
+					69E39A7718ECF9A1002FC82C = {
+						DevelopmentTeam = 2QT42FZAH3;
+					};
 					69E39A9818ECF9A2002FC82C = {
 						TestTargetID = 69E39A7718ECF9A1002FC82C;
 					};
@@ -369,7 +378,9 @@
 				69E39A8618ECF9A1002FC82C /* InfoPlist.strings in Resources */,
 				69E39ABF18F60F73002FC82C /* 1k basic Logo 120x120.png in Resources */,
 				69E39A8F18ECF9A1002FC82C /* Main.storyboard in Resources */,
+				5002BACD1908E72E00A45DDF /* generic-profile.JPG in Resources */,
 				69E39AB518ED00CF002FC82C /* GSjvDeN.jpg in Resources */,
+				694A878619076648006B7AC4 /* launchimagetry@2x.png in Resources */,
 				69E39AB318ECFA12002FC82C /* corgi-puppy-on-a-couch.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,6 +575,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -572,6 +585,7 @@
 				GCC_PREFIX_HEADER = "1k/1k-Prefix.pch";
 				INFOPLIST_FILE = "1k/1k-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -582,6 +596,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -590,6 +606,7 @@
 				GCC_PREFIX_HEADER = "1k/1k-Prefix.pch";
 				INFOPLIST_FILE = "1k/1k-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
